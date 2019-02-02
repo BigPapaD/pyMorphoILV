@@ -55,7 +55,7 @@ def consumer(in_q):
           img = Image.frombuffer('L', [data['data']['colNumber'], data['data']['rowNumber']], data['data']['huella'], "raw", 'L', 0, 1)
           img.show()
           with open("fingerprint.raw", 'wb') as raw_file:
-            raw_file.write(buffer(data['data']['huella']))
+            raw_file.write(data['data']['huella'])
       else:
         print data
       print '\n--------------------------------------------------------\n'

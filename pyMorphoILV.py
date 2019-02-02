@@ -342,7 +342,7 @@ class Terminal(object):
     imgSize		= rowNumber*colNumber
     offset+=15
 #    print "----Image data---- \nrowNumber: %d \ncolNumber: %d \nvertRes: %d \nhorzRes: %d \n%d \n%d" % (rowNumber, colNumber, vertRes, horzRes, compression, compressionParam)
-    huella = buffer[offset:offset+imgSize]
+    huella = buffer[offset:offset+imgSize].tostring()
     return {'rowNumber':rowNumber, 'colNumber':colNumber, 'huella':huella}
 
   #Misc / closing
