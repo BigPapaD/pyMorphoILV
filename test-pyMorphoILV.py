@@ -8,6 +8,14 @@ import sys
 import array
 import pyMorphoILV
 
+try:
+  import nfiq
+except ImportError:
+  nfiq_available = False
+  print 'NFIQ not available install from: https://github.com/alromh87/NBIS-python'
+else:
+  nfiq_available = True
+
 #from queue import Queue
 from multiprocessing import Queue
 from threading import Thread
@@ -54,6 +62,12 @@ def consumer(in_q):
         if data['status'] == 'huellaf':
           img = Image.frombuffer('L', [data['data']['colNumber'], data['data']['rowNumber']], data['data']['huella'], "raw", 'L', 0, 1)
           img.show()
+
+          print '\nHuella obtenida: \n'
+          if nfiq_available:
+            result =  nfiq.comp_nfiq(data['data']['huella'],  data['data']['colNumber'],  data['data']['rowNumber'], 8, 500)
+            print '\tCalidad:', result[1]
+
           with open("fingerprint.raw", 'wb') as raw_file:
             raw_file.write(data['data']['huella'])
       else:
