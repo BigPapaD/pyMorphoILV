@@ -13,6 +13,25 @@ ILV protocol implementation in python to communicate with fingerprint readers fr
 - MSO 300
 - MSO CBM
 
+## Installation
+###Instal requiered packages:
+apt-get install git python python-setuptools python-pil
+
+### Install:
+sudo python setup.py install 
+
+### Install udev rules and restart udev
+sudo cp 90-morpho.rules /etc/udev/rules.d/
+sudo systemctl restart udev
+
+### Test
+python testpyMorphoILV.py
+> scan
+
+## Usage
+
+-- TODO --
+
 ---
 Test program with CLI included
 
