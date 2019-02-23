@@ -14,7 +14,7 @@ ILV protocol implementation in python to communicate with fingerprint readers fr
 - MSO CBM
 
 ## Installation
-###Instal requiered packages:
+### Instal requiered packages:
 apt-get install git python python-setuptools python-pil
 
 ### Install:
